@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur_platform">
+
+
+  <!-- import main macro -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.xacro"/>
+
+  <xacro:include filename="$(find dh_robotics_ag95_description)/urdf/dh_robotics_ag95_gripper.urdf.xacro" />
+
+
+  <link name="world" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 0.7" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <xacro:dh_robotics_ag95_gripper prefix="" parent="tool0" >
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:dh_robotics_ag95_gripper>
+
+
+</robot>
